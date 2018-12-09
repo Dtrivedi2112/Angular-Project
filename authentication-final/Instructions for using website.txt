@@ -1,0 +1,20 @@
+Steps to use this website
+
+I have made this tutorial from the recipes demo given in my Udemy course and edited into it so please follow this steps
+
+Recipes - use to display profile
+	+ recipe-start = home page
+	+ recipe-list
+		+ recipe-item = display the image bar
+	+ recipe-edit = edit profile page
+	+ recipe-detail = profile page
+
+
+Shopping-list  - Job page
+
+To use this project
+
+	* Create your firebase db
+	* Generate your Apikey and replace that in app component
+
+Follow the shared folder for the models created

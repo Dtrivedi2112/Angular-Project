@@ -1,0 +1,546 @@
+<br>
+<br>
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <br>
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!recipeForm.valid"> <i class="fa fa-floppy-o" aria-hidden="true"></i> &nbsp; Save</button>
+            &nbsp;
+          <button type="button" class="btn btn-danger" (click)="onCancel()">
+           <i class="fa fa-ban" aria-hidden="true"></i> &nbsp; 
+          Cancel</button>
+        </div>
+      </div>
+       &nbsp;
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              class="form-control"
+              placeholder="Write Your Name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input
+              type="text"
+              id="imagePath"
+              formControlName="imagePath"
+              class="form-control"
+              #imagePath>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <img [src]="imagePath.value" class="img-responsive">
+        </div>
+      </div>
+      <hr>  
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              type="text"
+              id="description"
+              class="form-control"
+              formControlName="description"
+             
+              placeholder="Write something that catches the eye of the recruiter..."
+              rows="6"
+              cols="25"
+              wrap="hard"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12" formArrayName="Skills">
+           <label for="Skill">Skills</label>
+          <div
+            class="row"
+            *ngFor="let SkillsCtrl of recipeForm.get('Skills').controls; let i = index"
+            [formGroupName]="i"
+            style="margin-top: 10px;">
+            <div class="col-xs-8">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Add your skill"
+                formControlName="name">
+            </div>
+            <div class="col-xs-2">
+              <input
+                type="number"
+                class="form-control"
+                formControlName="amount">
+            </div>
+            <div class="col-xs-2">
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="onDeleteSkills(i)"> <i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="onAddSkills()"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Skill</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+       <div class="row">
+         
+        <div class="col-xs-12" formArrayName="education">
+           <label for="Education">Education</label>
+          <div
+            class="row"
+            *ngFor="let educationCtrl of recipeForm.get('education').controls; let i = index"
+            [formGroupName]="i"
+            style="margin-top: 10px;">
+            <div class="col-xs-3">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="institute"
+                placeholder="Institute name">
+            </div>
+            
+            <div class="col-xs-8">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="qualification"
+                placeholder="Qualification - Masters of IT">
+            </div>
+            <br>
+            <br>
+            <br>
+             <div class="col-xs-4">
+              <input
+                type="date"
+                class="form-control"
+                formControlName="date_started">
+            </div>
+            
+             <div class="col-xs-4">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="date_ended"
+                placeholder="MMM YYYY or Present">
+            </div>
+            <br>
+            <br>
+            <br>
+             <div class="col-xs-8">
+             <!--  <input
+                type="text"
+                class="form-control"
+                formControlName="description"
+                placeholder="Description...."> -->
+
+                
+                <textarea
+              type="text"
+              id="description"
+              class="form-control"
+              formControlName="description"
+              maxlength="500"
+              placeholder="Description....."
+              rows="6"
+              cols="25"
+              wrap="hard"></textarea>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="col-xs-2">
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="onDeleteEducation(i)"> <i class="fa fa-trash" aria-hidden="true"></i> &nbsp; Delete</button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="onAddEducation()"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Education</button>
+                <hr>
+                <br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work Experience -->
+       <div class="row">
+         
+        <div class="col-xs-12" formArrayName="Workexperience">
+           <label for="Workexperience">Work Experience</label>
+          <div
+            class="row"
+            *ngFor="let WorkexperienceCtrl of recipeForm.get('Workexperience').controls; let i = index"
+            [formGroupName]="i"
+            style="margin-top: 10px;">
+            <div class="col-xs-3">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Position"
+                placeholder="Enter your Title">
+            </div>
+            
+            <div class="col-xs-3">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Companyname"
+                placeholder="Enter your Company name">
+            </div>
+
+
+            <div class="col-xs-3">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Location"
+                placeholder="Enter Location">
+            </div>
+            <br>
+            <br>
+            <br>
+             <div class="col-xs-4">
+              <input
+                type="date"
+                class="form-control"
+                formControlName="date_started">
+            </div>
+            
+             <div class="col-xs-4">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="date_ended"
+                 placeholder="MMM YYYY or Present">
+            </div>
+            <br>
+            <br>
+            <br>
+             <!-- <mat-checkbox [(ngModel)]="checked">Checked</mat-checkbox>
+            <br>
+            <br>
+             <mat-checkbox
+          class="example-margin"
+          [(ngModel)]="checked">
+        I'm a checkbox
+      </mat-checkbox> -->
+             <div class="col-xs-8">
+             <!--  <input
+                type="text"
+                class="form-control"
+                formControlName="description"
+                placeholder="Description...."> -->
+
+                <textarea
+              type="text"
+              id="description"
+              class="form-control"
+              formControlName="description"
+              maxlength="500"
+              placeholder="Description....."
+              rows="6"
+              cols="25"
+              wrap="hard"
+              name="explanation" dirname="explanation.dir"
+              ></textarea>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="col-xs-2">
+              
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="onDeleteWE(i)" ><i class="fa fa-trash" aria-hidden="true"></i> &nbsp; Delete </button>
+            </div>
+
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="onAddWE()"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Work Experience</button>
+                <hr>
+                <br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Volunteer -->
+
+      <div class="row">
+         
+        <div class="col-xs-12" formArrayName="Volunteer">
+           <label for="Volunteer">Volunteer</label>
+          <div
+            class="row"
+            *ngFor="let VolunteerCtrl of recipeForm.get('Volunteer').controls; let i = index"
+            [formGroupName]="i"
+            style="margin-top: 10px;">
+            <div class="col-xs-3">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Position"
+                placeholder="Enter your Title">
+            </div>
+            
+            <div class="col-xs-3">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Companyname"
+                placeholder="Enter your Company name">
+            </div>
+
+
+            <div class="col-xs-3">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Location"
+                placeholder="Enter Location">
+            </div>
+            <br>
+            <br>
+            <br>
+             <div class="col-xs-4">
+              <input
+                type="date"
+                class="form-control"
+                formControlName="date_started">
+            </div>
+            
+             <div class="col-xs-4">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="date_ended"
+                placeholder="MMM YYYY or Present">
+            </div>
+
+          
+
+
+            <br>
+            <br>
+            <br>
+             <div class="col-xs-8">
+             <!--  <input
+                type="text"
+                class="form-control"
+                formControlName="description"
+                placeholder="Description...."> -->
+
+                <textarea
+              type="text"
+              id="description"
+              class="form-control"
+              formControlName="description"
+              maxlength="500"
+              placeholder="Description....."
+              rows="6"
+              cols="25"
+              wrap="hard"
+              name="explanation" dirname="explanation.dir"
+              ></textarea>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="col-xs-2">
+              
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="onDeleteVE(i)" ><i class="fa fa-trash" aria-hidden="true"></i> &nbsp; Delete </button>
+            </div>
+
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="onAddVE()"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Volunteer Experience</button>
+                <hr>
+                <br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Conatct Information -->
+
+
+       <div class="row">
+         
+        <div class="col-xs-12" formArrayName="ContactInfo">
+           <label for="ContactInfo">Contact Info</label>
+          <div
+            class="row"
+            *ngFor="let ContactInfoCtrl of recipeForm.get('ContactInfo').controls; let i = index"
+            [formGroupName]="i"
+            style="margin-top: 10px;">
+            <div class="col-xs-3">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="LinkedIn"
+                placeholder="LinkedIn URL">
+            </div>
+            
+            <div class="col-xs-3">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Phone"
+                placeholder="Phone">
+            </div>
+
+
+            <div class="col-xs-3">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Email"
+                placeholder="Email">
+            </div>
+
+              <div class="col-xs-3">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Location"
+                placeholder="Location">
+            </div>
+           
+            <br>
+            <br>
+            
+            <div class="col-xs-2">
+              
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="onDeleteContact(i)" > <i class="fa fa-trash" aria-hidden="true"></i> &nbsp;Delete </button>
+            </div>
+
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="onAddContact()"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Contact</button>
+                <hr>
+                <br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interest -->
+
+
+       <div class="row">
+         
+        <div class="col-xs-12" formArrayName="Interest">
+           <label for="Interest">Interest</label>
+          <div
+            class="row"
+            *ngFor="let InterestCtrl of recipeForm.get('Interest').controls; let i = index"
+            [formGroupName]="i"
+            style="margin-top: 10px;">
+            <div class="col-xs-3">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="name"
+                placeholder="add Interest">
+            </div>
+           
+            
+            <div class="col-xs-2">
+              
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="onDeleteINT(i)" > <i class="fa fa-trash" aria-hidden="true"></i> &nbsp;Delete </button>
+            </div>
+
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="onAddINT()"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Interest</button>
+                <hr>
+                <br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </form>
+  </div>
+</div>

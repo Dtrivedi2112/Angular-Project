@@ -1,0 +1,87 @@
+
+
+ <nav class="navbar navbar-lg">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a routerLink="/" class="navbar-brand" ><img src="assets/logo.png" class="img-fluid" 
+        style="display: inline-block;
+                width: auto;
+                height: inherit;
+                image-rendering: -webkit-optimize-contrast;" 
+              >
+        <b></b></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <div class="left" style="padding-top: 15px">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a routerLink="/data">
+
+          <i class="fa fa-user-md" aria-hidden="true" style="color:#337ab7"></i> &nbsp;
+        Profile</a></li>
+        <li routerLinkActive="active"><a routerLink="/jobs">
+          <i class="fa fa-briefcase" aria-hidden="true" style="color:#337ab7"></i> &nbsp;
+        Jobs</a></li>
+         <li routerLinkActive="active"><a routerLink="/profiles">
+          <i class="fa fa-search"></i>
+         Search</a></li> 
+
+     
+          <li class="dropdown" appDropdown>
+          <a style="cursor: pointer;" class="dropdown-toggle" role="button">
+             <i class="fa fa-calculator"></i>
+            Administration <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a style="cursor: pointer;">Timesheets</a></li>
+            <li><a style="cursor: pointer;">Leave</a></li>
+            <li><a style="cursor: pointer;">Pay Slips</a></li>
+          </ul>
+        </li>
+           
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right" style="margin-bottom: -13px">
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+          <li><a routerLink="/signup"> <i class="fa fa-user-plus" aria-hidden="true" style="color:#337ab7"></i> &nbsp; Register</a></li>
+          <li><a routerLink="/signin"> <i class="fa fa-sign-in" aria-hidden="true" style="color:#337ab7"></i> &nbsp;Login</a></li>
+        </ng-template>
+
+       
+
+        <li><a *ngIf="authService.isAuthenticated()">
+
+          
+
+        <!--  -->
+          
+    
+           <a class="btn btn-success" style="cursor: pointer;" (click)="onSaveData()">
+          <i class="fa fa-floppy-o" aria-hidden="true" ></i> &nbsp;
+           Save Profile</a>
+           &nbsp;
+           <a class="btn btn-info" style="cursor: pointer;" (click)="onFetchData()">
+            <i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;
+           See Profile</a>
+          </a>
+        </li>
+
+         <li>
+          <a *ngIf="authService.isAuthenticated()">
+          <a
+          class="btn btn-warning"
+          style="cursor: pointer;"
+          (click)="onLogout()"
+          >
+          <i class="fa fa-sign-out" aria-hidden="true"></i> &nbsp;
+        Logout</a>
+
+
+          </a>
+        </li>
+
+        
+      </ul>
+    </div>
+    </div>
+  </div>
+ </nav> 

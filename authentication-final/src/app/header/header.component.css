@@ -1,0 +1,22 @@
+img
+{
+	 width: 150px;
+    image-rendering: -webkit-optimize-contrast;
+    height: 40px;
+    /*background-image: url('src/assets/bg-01.jpg');*/
+}
+
+
+
+
+.navbar-collapse {
+    padding-right: 15px;
+    padding-left: 15px;
+   
+}
+.left
+{
+	 padding-top: 15px;
+
+}
+

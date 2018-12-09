@@ -1,0 +1,402 @@
+<div id="main-content" class="profileviewpage">
+<div class="container">
+<div class="block-header">
+   <div class="row">
+      <div class="col-lg-5 col-md-8 col-sm-12">
+         <!-- <h2>Profile</h2>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item active">View Profile</li>
+            </ul> -->
+      </div>
+   </div>
+</div>
+<div class="row clearfix">
+<div class="col-lg-3">
+   <div class="card profile-header">
+      <div class="body">
+         <div class="profile-image"> <img
+            [src]="recipe.imagePath"
+            alt="{{ recipe.name }}"
+            class="img-circle"
+            style="max-height: 200px;"
+            align="middle">
+         </div>
+         <div>
+            <h4 class="profile-name"><strong>{{ recipe.name }}</strong></h4>
+            <br>
+            <div
+               class="btn-group"
+               appDropdown>
+               <button 
+                  align="center"
+                  type="button"
+                  class="btn btn-primary dropdown-toggle"> 
+               <i class="fa fa-cog fa-spin fa-1x fa-fw" aria-hidden="true"></i>
+               &nbsp;
+               Edit Profile  <span class="caret"></span>
+               </button>
+               <br>
+               <ul class="dropdown-menu">
+                  <!-- <li><a (click)="onAddToShoppingList()" style="cursor: pointer;">To Shopping List</a></li> -->
+                  <li><a style="cursor: pointer;" (click)="onEditRecipe()">
+                     <i class="fa fa-pencil-square" aria-hidden="true"></i> &nbsp;
+                     Edit Profile</a>
+                  </li>
+                  <li>
+                     <a style="cursor: pointer;" (click)="onDeleteRecipe()">
+                     <i class="fa fa-trash" aria-hidden="true"></i> &nbsp;
+                     Delete Profile</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="card">
+      <div class="header">
+         <h2> <i class="fa fa-address-book-o" aria-hidden="true" style="color: blue"></i>
+            &nbsp; Info
+         </h2>
+      </div>
+      <div class="body">
+         <ul class="list-group">
+            <li
+               class="list-group-item"
+               *ngFor="let ContactInfo of recipe.ContactInfo">
+               <small class="text-muted">Location: </small>
+               <p>
+                  <!-- Melbourne Australia -->
+                  <i class="fa fa-map-marker" aria-hidden="true" style="color: red"></i>
+                  {{ ContactInfo.Location }}
+               </p>
+               <div>
+                  <hr>
+                  <small class="text-muted">Email address: </small>
+                  <p><i class="fa fa-envelope" aria-hidden="true" style="color: pink"></i>
+                     {{ ContactInfo.Email }} 
+                  </p>
+                  <hr>
+                  <small class="text-muted">Mobile: </small>
+                  <p> <i class="fa fa-phone-square" aria-hidden="true" style="color: lightgreen"></i>
+                     {{ ContactInfo.Phone }}
+                  </p>
+                  <hr>
+                  <small class="text-muted">Birth Date: </small>
+                  <p class="m-b-0">11-11-94</p>
+                  <hr>
+                  <small class="text-muted">Social: </small>
+                  <p><i class="fab fa-linkedin-in social"></i> <a href = "{{ ContactInfo.LinkedIn }}">
+                     <i class="fa fa-linkedin-square " aria-hidden="true" style="color: darkblue"></i>
+                     </a>
+                  </p>
+                  <!--  <p><i class="fab fa-twitter social"></i> <a href="http://twitter.com/eeloy" target="_blank">twitter.com/eeloy</a></p>
+                     <p><i class="fab fa-facebook-f social"></i> <a href="http://facebook.com/eeloy" target="_blank">facebook.com/eeloy</a></p> -->
+               </div>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <div class="card">
+      <div class="header">
+         <h2>Personality Test Results</h2>
+      </div>
+      <div class="body">
+         <p class="mb-0">Communication</p>
+         <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4/5</div>
+         </div>
+         <p class="mb-0">Relationship Management</p>
+         <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4/5</div>
+         </div>
+         <p class="mb-0">Problem Solving</p>
+         <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">3.5/5</div>
+         </div>
+         <p class="mb-0">Working with Others</p>
+         <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">5/5</div>
+         </div>
+         <p class="mb-0">Planning and Process</p>
+         <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4/5</div>
+         </div>
+         <p><a href="#">More Information</a></p>
+      </div>
+   </div>
+   <div class="card">
+      <div class="header">
+         <h2>Skills Test Results</h2>
+      </div>
+      <div class="body">
+         <p class="mb-0">Java Test</p>
+         <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+         </div>
+         <p class="mb-0">PHP</p>
+         <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 93%" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100">93%</div>
+         </div>
+         <p class="mb-0">General Logic</p>
+         <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 83%" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100">83%</div>
+         </div>
+         <p><a href="#">Take More Tests</a></p>
+      </div>
+   </div>
+</div>
+<div class="col-lg-6">
+   <div class="card">
+      <div class="header">
+         <h2> <i class="fa fa-info-circle" aria-hidden="true" style="color: #178bb9"></i>&nbsp;About</h2>
+      </div>
+      <div class="body">
+         <ul class="list-group">
+            <li class="list-group-item">
+               <p class="breakAll">
+                  {{ recipe.description }}
+               </p>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+
+   <!-- Work Experience -->
+
+   <div class="card">
+      <div class="header">
+         <h2> <i class="fa fa-briefcase" aria-hidden="true" style="color: green"></i>
+            &nbsp; Work History
+         </h2>
+      </div>
+      <div class="body">
+         <ul class="list-group">
+            <li
+               class="list-group-item"
+               *ngFor="let Workexperience of recipe.Workexperience">
+               <div class="timeline-item green" >
+                  <font color="grey">
+                     {{ Workexperience.date_started |  date: 'MMM yyyy'}} -  {{ Workexperience.date_ended }}
+                     
+                  </font>
+                  <h4> {{ Workexperience.Position }}</h4>
+                  
+                  <span>{{ Workexperience.Companyname }}</span>
+                  <div class="msg">
+                     <p>
+                     <ul>
+                        {{ Workexperience.description }}
+                     </ul>
+                  </div>
+               </div>
+             
+            </li>
+         </ul>
+      </div>
+   </div>
+
+<!-- Education -->
+
+   <div class="card">
+      <div class="header">
+         <h2> <i class="fa fa-graduation-cap" aria-hidden="true" style="color: orange"></i>&nbsp; Education</h2>
+      </div>
+      <div class="body">
+         <ul class="list-group">
+            <li
+               class="list-group-item"
+               *ngFor="let education of recipe.education">
+               <div class="timeline-item orange" >
+                  <font color="grey">
+                  {{ education.date_started |  date: 'MMM yyyy'}} -  {{ education.date_ended }}
+                  </font>
+                  <h4>
+                     <!-- Bachelor of Science (BSc), Second Upper Class (Hons) -->
+                     {{ education.qualification | join: ' ' }}
+                  </h4>
+                  <span>
+                     <!-- University of Melbourne, Melbourne, Australia -->
+                     <h6>
+                        {{ education.institute | join:'0'}}
+                     </h6>
+                  </span>
+                  <div class="msg">
+                     <p>
+                        <!-- Major - Anatomy and Physiology -->
+                        {{ education.description | join: ' ' }}
+                     </p>
+                     <p><a href="#">Transcript</a></p>
+                  </div>
+                  <!-- <div class="timeline-item blue" date-is="2010 - 2011">
+                     <h5>International Baccalaureate</h5>
+                     <span>Methodist Ladies College, Melbourne, Australia</span>
+                     </div> -->
+               </div>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+
+   <!-- Volunteer -->
+   <div class="card">
+      <div class="header">
+         <h2> <i class="fa fa-heart" aria-hidden="true" style="color: red"></i>&nbsp; Volunteer</h2>
+      </div>
+      <div class="body">
+         <ul class="list-group">
+            <li
+               class="list-group-item"
+               *ngFor="let Volunteer of recipe.Volunteer">
+               <div class="timeline-item red" >
+                  <font color="grey">
+                  {{ Volunteer.date_started |  date: 'MMM yyyy'}} -  {{ Volunteer.date_ended }}
+                  </font>
+                  <h4>
+                     <!-- Bachelor of Science (BSc), Second Upper Class (Hons) -->
+                     {{ Volunteer.Position | join: ' ' }}
+                  </h4>
+                  <span>
+                     <!-- University of Melbourne, Melbourne, Australia -->
+                     <h6>
+                        {{ Volunteer.Companyname | join:'0'}}
+                     </h6>
+                  </span>
+                  <div class="msg">
+                     <p>
+                        <!-- Major - Anatomy and Physiology -->
+                        {{ Volunteer.description | join: ' ' }}
+                     </p>
+                     <p><a href="#">Transcript</a></p>
+                  </div>
+               </div>
+               <!-- <div class="timeline-item blue" date-is="2010 - 2011">
+                  <h5>International Baccalaureate</h5>
+                  <span>Methodist Ladies College, Melbourne, Australia</span>
+                  </div> -->
+            </li>
+         </ul>
+      </div>
+   </div>
+</div>
+
+
+
+<div class="col-lg-3">
+<div class="card text-center">
+   <div class="body">
+    <canvas width="150" height="150"></canvas>
+      <input type="text" class="knob" value="75" data-width="150" data-height="150" data-thickness="0.3" data-fgColor="#0766c6">
+      <h6>Profile Complete</h6>
+      <p>2 more steps to go</p>
+      <table class="table profile-complete">
+         <tbody>
+            <tr class="profile-done">
+               <td>Personal Information</td>
+               <td class="align-right"><span class="badge badge-done"><i class="fas fa-check"></i></span></td>
+            </tr>
+            <tr class="profile-done">
+               <td>Education</td>
+               <td class="align-right"><span class="badge badge-done"><i class="fas fa-check"></i></span></td>
+            </tr>
+            <tr class="profile-done">
+               <td>Work History</td>
+               <td class="align-right"><span class="badge badge-done"><i class="fas fa-check"></i></span></td>
+            </tr>
+            <tr class="profile-done">
+               <td>About</td>
+               <td class="align-right"><span class="badge badge-done"><i class="fas fa-check"></i></span></td>
+            </tr>
+            <tr class="profile-done">
+               <td>Skills</td>
+               <td class="align-right"><span class="badge badge-done"><i class="fas fa-check"></i></span></td>
+            </tr>
+            <tr class="profile-done">
+               <td>Interests</td>
+               <td class="align-right"><span class="badge badge-done"><i class="fas fa-check"></i></span></td>
+            </tr>
+            <tr>
+               <td>Personality Test</td>
+               <td class="align-right"><span class="badge badge-incomplete"><a href="#"><i class="fas fa-edit"></i></a></span></td>
+            </tr>
+            <tr>
+               <td>Skills Test</td>
+               <td class="align-right"><span class="badge badge-incomplete"><a href="#"><i class="fas fa-edit"></i></a></span></td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>
+
+
+
+<!-- Skills -->
+<div class="card">
+   <div class="header">
+      <h2> <i class="fa fa-check-circle" aria-hidden="true" style="color: #d05c86"></i>&nbsp;Skills</h2>
+   </div>
+   <div class="body accordion" id="skillsAccordion">
+      <ul class="list-group">
+         <li
+            class="list-group-item"
+            *ngFor="let Skills of recipe.Skills">
+            <b>  {{ Skills.name }} </b> - {{ Skills.amount }}
+         </li>
+      </ul>
+      <span class="list-group-item d-flex justify-content-between align-items-center skills-list"><span data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Soft Skills</span><span class="badge badge-primary badge-pill">3</span></span>
+      <span class="collapse list-group-item align-left" id="collapseTwo" data-parent="#skillsAccordion">
+         <ul>
+            <li>Leadership</li>
+            <li>Teamwork</li>
+            <li>Collaborative</li>
+         </ul>
+      </span>
+   </div>
+</div>
+
+
+<!-- INTEREST -->
+<div class="card">
+   <div class="header">
+      <h2> <i class="fa fa-gratipay" aria-hidden="true" style="color: #15b78b"></i>&nbsp;
+         Interests
+      </h2>
+   </div>
+   <div class="body">
+      <ul class="list-group">
+         <li
+            class="list-group-item"
+            *ngFor="let Interest of recipe.Interest">
+            {{ Interest.name }}
+         </li>
+      </ul>
+   </div>
+</div>
+<!-- /////////////////// -->
+
+ <script>
+    $(".knob").knob({
+      'format': function(value) {
+        return value + '%';
+      }
+    });
+
+    $("#header-form").hide();
+
+    $( "#edit-header" ).click(function() {
+      $( "#edit-header" ).fadeOut("fast", function() {
+        $( "#header-info").fadeOut("fast");
+        $("#header-form").fadeIn("fast");
+      });
+    });
+
+    $( "#save-header" ).click(function() {
+      $( "#edit-header" ).fadeIn("fast", function() {
+        $( "#header-info").fadeIn("fast");
+        $("#header-form").fadeOut("fast");
+      });
+    });
+
+  </script>

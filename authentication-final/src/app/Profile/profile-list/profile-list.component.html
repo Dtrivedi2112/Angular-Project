@@ -1,0 +1,39 @@
+<div class="row">
+
+	<div class="col-xs-12">
+
+		<button class="btn btn success">New Profile</button>
+
+	</div>
+
+
+</div>
+
+<div class="row">
+
+	<div class="col-xs-12">
+
+		<a href="#" class="list-group-item clearfix" *ngFor="let profile of profiles ">
+			<div class="pull-left">
+				<h4 class="list-group-item-heading"> {{ profile.name }} </h4>
+				<p class="list-group-item-text"> {{ profile.location }} </p>
+				<p class="list-group-item-text"> {{ profile.about }} </p>
+				<p class="list-group-item-text"> {{ profile.phone }} </p>
+				<p class="list-group-item-text"> {{ profile.linkedin }} </p>
+				<p class="list-group-item-text"> {{ profile.twitter }} </p>
+				<p class="list-group-item-text"> {{ profile.facebook }} </p>
+				<p class="list-group-item-text"> {{ profile.birthday }} </p>
+
+			</div>
+				
+				<span class="pull-right">
+					<img src="{{ profile.image }}" alt="{{ profile.name }}" class="img-responsive" style="max-height: 50px;">
+				</span>
+
+			</a>
+	</div>
+
+
+</div>
+
+<app-profile-item></app-profile-item>

@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-shopping-edit></app-shopping-edit>
+    <br>
+    <br>
+    <br>   
+    <ul class="list-group">
+      <a
+        class="list-group-item"
+        style="cursor: pointer"
+        *ngFor="let ingredient of ingredients; let i = index"
+        (click)="onEditItem(i)"
+      >
+       <font size="4px">
+       <font color="#286090">
+        <b> {{ ingredient.name }} </b>
+      </font>
+
+      </font>
+
+      -
+      <i>{{ ingredient.location }}</i>
+      <br>
+      <br>
+
+      
+        <span class="badge">
+       <button class="btn btn-primary" type="button" (click)="onClear()">Apply</button>
+       </span>
+
+         <font color="grey">
+
+         {{ ingredient.description }} 
+
+       </font>
+
+       <br>
+
+       <font color="#ff6666">
+       <br>
+       {{ ingredient.skills}}
+      </font>
+      
+     
+      </a>
+      
+
+
+    </ul>
+
+  </div>
+</div>

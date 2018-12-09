@@ -1,0 +1,140 @@
+.bg {
+    /* The image used */
+   /* background-image: url("");*/
+   background-color: grey;
+
+    /* Full height */
+    height: 50%; 
+
+  
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.row
+ {
+  
+    background-color: #edeff5;
+   /* background-image: url("src/assets/bg-01.jpg");*/
+ 
+    margin-right: 0;
+    margin-left: -180px;
+    margin-top: -19px;
+    width: 1499px;
+    height: 600px;
+    padding-top: 115px;
+    padding-right: 55px;
+    left: 65px;
+
+}
+
+html,body{
+background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.input-group-addon:first-child {
+    border-right: 0;
+    background-color: #ffc312;
+}
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: auto;
+margin-top: 200px;
+margin-bottom: 100px;
+margin-left: 350px;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+    position: relative;
+    right: -90px;
+    top: -5px;
+}
+
+/*.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}*/
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+.form-group{
+
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+.form-group[_ngcontent-c1] {
+    margin-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}

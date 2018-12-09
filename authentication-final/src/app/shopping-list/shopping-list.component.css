@@ -1,0 +1,23 @@
+a.list-group-item
+{
+	margin-bottom: 10px;
+}
+.list-group
+{
+	background-color: beige;
+}
+
+.badge {
+    display: inline-block;
+    min-width: initial;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+   background-color: transparent;
+    border-radius: 10px;
+    }
